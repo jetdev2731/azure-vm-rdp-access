@@ -1,65 +1,65 @@
-# Deploy and Clean Up Azure Windows VM with RDP Access
+# 🖥️ Deploy and Clean Up Azure Windows VM with RDP Access
 
-This project includes two PowerShell scripts to help you quickly deploy and later clean up a test Windows 10 Virtual Machine in Azure.
+This project includes two PowerShell scripts to help you quickly deploy and later clean up a Windows 10 VM in Azure.
 
 ---
 
-## 🛠 What the Deployment Script Does (`New-AzFullVmRdp-Redacted.ps1`)
-- Creates a resource group (`JetTestLabRG`)
+## ⚙️ What the Deployment Script Does (`New-AzFullVmRdp-Redacted.ps1`)
+
+- Creates a resource group (`MyTestRG`)
 - Builds a VNet, Subnet, and NSG (with RDP rule)
 - Creates a NIC and Public IP
 - Deploys a Windows 10 VM with RDP enabled
 - Prompts you for admin credentials
-- Outputs the assigned Public IP
+- Outputs the public IP for connection
 
 ---
 
-## 🚀 How to Deploy
+## 🚀 How to Use
 
 1. Open PowerShell and authenticate:
-   ```powershell
-   Connect-AzAccount
-   ```
 
-2. Navigate to your script location (e.g., Downloads):
-   ```powershell
-   cd "$HOME\Downloads"
-   ```
+```powershell
+Connect-AzAccount
+```
 
-3. Run the deployment script:
-   ```powershell
-   .\New-AzFullVmRdp-Redacted.ps1
-   ```
+2. Save and run the script:
 
-4. After deployment, RDP into the VM using the provided Public IP and your credentials.
+```powershell
+.\New-AzFullVmRdp-Redacted.ps1
+```
+
+3. Wait for deployment to complete, then RDP using the public IP and credentials you entered.
 
 ---
 
-## 🧹 How to Clean Up (`Remove-AzFullVmRdp-Redacted-20250508.ps1`)
+## 🧹 Clean Up to Avoid Charges
 
-To avoid unnecessary charges, run the cleanup script to delete everything:
+To delete all created resources and avoid billing:
 
 ```powershell
-.\Remove-AzFullVmRdp-20250508.ps1
+.\Remove-AzFullVmRdp-Redacted.ps1
 ```
 
 This removes:
 - The Virtual Machine
 - Public IP
-- NIC, NSG, VNet, Subnet
-- Managed Disk and all attached resources
+- NIC
+- NSG
+- VNet
+- Subnet
+- Managed Disk
+- And everything under `MyTestRG`
 
 ---
 
-## ⚠️ Notes
-- Make sure the `Az` PowerShell module is installed.
-- You must have **Contributor** role permissions to deploy or delete Azure resources.
+## 📝 Notes
+
+- Ensure the `Az` PowerShell module is installed
+- You must have contributor rights in your Azure subscription
 
 ---
 
 ## 🔗 View on GitHub
-[📎 View on GitHub](https://github.com/jetdev2731/azure-vm-rdp-access/tree/main)
 
----
-© 2025 Jet Mariano. All rights reserved.
-
+[View on GitHub](https://github.com/jetdev2731/azure-vm-rdp-access)
