@@ -35,7 +35,7 @@ This project includes two PowerShell scripts to help you quickly deploy and late
 
 ---
 
-## 🧹 How to Clean Up (`Remove-AzFullVmRdp-20250508.ps1`)
+## 🧹 How to Clean Up (`Remove-AzFullVmRdp-Redacted-20250508.ps1`)
 
 To avoid unnecessary charges, run the cleanup script to delete everything:
 
