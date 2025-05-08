@@ -1,40 +1,65 @@
-# Deploying and Accessing a Windows VM in Azure via RDP
+# Deploy and Clean Up Azure Windows VM with RDP Access
 
-This PowerShell script automates the deployment of a Windows 10 Virtual Machine in Microsoft Azure and enables Remote Desktop Protocol (RDP) access.
+This project includes two PowerShell scripts to help you quickly deploy and later clean up a test Windows 10 Virtual Machine in Azure.
 
-## 🛠 What This Script Does
+---
 
-- Creates a resource group, virtual network, subnet, and network security group.  
-- Deploys a Windows 10 VM with a static public IP.  
-- Enables RDP access through NSG rule.  
-- Prompts for secure admin credentials.  
-- Outputs the public IP for RDP use.  
+## 🛠 What the Deployment Script Does (`New-AzFullVmRdp-20250508.ps1`)
+- Creates a resource group (`JetTestLabRG`)
+- Builds a VNet, Subnet, and NSG (with RDP rule)
+- Creates a NIC and Public IP
+- Deploys a Windows 10 VM with RDP enabled
+- Prompts you for admin credentials
+- Outputs the assigned Public IP
 
-## 🚀 How to Use
+---
+
+## 🚀 How to Deploy
 
 1. Open PowerShell and authenticate:
+   ```powershell
+   Connect-AzAccount
+   ```
 
-    ```powershell
-    Connect-AzAccount
-    ```
+2. Navigate to your script location (e.g., Downloads):
+   ```powershell
+   cd "$HOME\Downloads"
+   ```
 
-2. Save and run the script:
+3. Run the deployment script:
+   ```powershell
+   .\New-AzFullVmRdp-20250508.ps1
+   ```
 
-    ```powershell
-    .\Deploy-WindowsVM-RDP-20250508.ps1
-    ```
+4. After deployment, RDP into the VM using the provided Public IP and your credentials.
 
-3. Wait for deployment to complete, then use the public IP and username/password to RDP into the VM.
+---
 
-## 🧹 Clean Up (Optional but Recommended)
+## 🧹 How to Clean Up (`Remove-AzFullVmRdp-20250508.ps1`)
 
-To avoid unnecessary charges for:
-
-- Managed Disks  
-- Public IPs  
-- NICs, NSGs, VNet, and other attached resources  
-
-Run the cleanup script:
+To avoid unnecessary charges, run the cleanup script to delete everything:
 
 ```powershell
-Remove-AzResourceGroup -Name "MyTestRG" -Force -AsJob
+.\Remove-AzFullVmRdp-20250508.ps1
+```
+
+This removes:
+- The Virtual Machine
+- Public IP
+- NIC, NSG, VNet, Subnet
+- Managed Disk and all attached resources
+
+---
+
+## ⚠️ Notes
+- Make sure the `Az` PowerShell module is installed.
+- You must have **Contributor** role permissions to deploy or delete Azure resources.
+
+---
+
+## 🔗 View on GitHub
+[📎 View on GitHub](https://github.com/jetdev2731/azure-vm-rdp-access/tree/main)
+
+---
+© 2025 Jet Mariano. All rights reserved.
+
