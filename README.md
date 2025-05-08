@@ -4,7 +4,7 @@ This project includes two PowerShell scripts to help you quickly deploy and late
 
 ---
 
-## 🛠 What the Deployment Script Does (`New-AzFullVmRdp-20250508.ps1`)
+## 🛠 What the Deployment Script Does (`New-AzFullVmRdp-Redacted.ps1`)
 - Creates a resource group (`JetTestLabRG`)
 - Builds a VNet, Subnet, and NSG (with RDP rule)
 - Creates a NIC and Public IP
@@ -28,7 +28,7 @@ This project includes two PowerShell scripts to help you quickly deploy and late
 
 3. Run the deployment script:
    ```powershell
-   .\New-AzFullVmRdp-20250508.ps1
+   .\New-AzFullVmRdp-Redacted.ps1
    ```
 
 4. After deployment, RDP into the VM using the provided Public IP and your credentials.
